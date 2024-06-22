@@ -64,3 +64,21 @@
   (cond ((= n 0) a)
         ((even? n) (fast-expt a (squared b) (/ n 2)))
         (else (fast-expt (* a b) (squared b) (/ (- n 1) 2)))))
+
+;;; Exercise 1.17
+
+(define (times-subtracted n count)
+  (if (= n 0) count (times-subtracted (- n 2) (+ count 1))))
+
+(define (halve n)
+  (if (even? n) (times-subtracted n 0) n))
+
+(define (double n)
+  (+ n n))
+
+(define (fast-multiply a b)
+  (cond ((= a 1) b)
+    ((even? a) (fast-multiply (halve a) (double b)))
+    (else (+  (fast-multiply (- a 1) b) b))))
+
+
