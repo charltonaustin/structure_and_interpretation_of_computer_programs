@@ -78,7 +78,7 @@
 
 (define (fast-multiply a b)
   (cond ((= a 1) b)
-    ((even? a) (fast-multiply (halve a) (double b)))
-    (else (+  (fast-multiply (- a 1) b) b))))
+        ((even? a) (fast-multiply (halve a) (double b)))
+        (else (+  (fast-multiply (- a 1) b) b))))
 
 
